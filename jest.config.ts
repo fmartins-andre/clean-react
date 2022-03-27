@@ -12,6 +12,9 @@ const config: Config.InitialOptions = {
   ],
   transform: {
     '.+\\.ts$': 'ts-jest'
+  },
+  moduleNameMapper: {
+    '@/(.*)': '<rootDir>/src/$1'
   }
 }
 
