@@ -3,7 +3,6 @@ import type { Config } from '@jest/types'
 const config: Config.InitialOptions = {
   passWithNoTests: true,
   clearMocks: true,
-  collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   testEnvironment: 'node',
