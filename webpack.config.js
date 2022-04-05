@@ -19,6 +19,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'public/js'),
     publicPath: path.resolve(__dirname, 'public/js'),
+    assetModuleFilename: '../assets/[hash][ext][query]',
     filename: 'bundle.js'
   },
   devServer: {
