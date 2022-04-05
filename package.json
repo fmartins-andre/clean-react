@@ -39,8 +39,9 @@
     "workbox-webpack-plugin": "^6.5.2"
   },
   "scripts": {
+    "start": "webpack-dev-server",
     "postinstall": "husky install",
-    "test": "jest",
+    "test": "jest --no-cache -i",
     "test:watch": "yarn test -- --watch",
     "test:staged": "yarn test -- --findRelatedTests",
     "test:ci": "yarn test -- --coverage",
