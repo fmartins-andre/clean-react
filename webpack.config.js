@@ -53,7 +53,7 @@ const config = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.scss'],
     alias: {
       '@': path.resolve(__dirname, 'src')
     }

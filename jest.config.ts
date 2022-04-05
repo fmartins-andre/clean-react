@@ -8,13 +8,15 @@ const config: Config.InitialOptions = {
   testEnvironment: 'jsdom',
   roots: ['<rootDir>/src'],
   collectCoverageFrom: [
-    '<rootDir>/src/**/*.{ts,tsx}'
+    '<rootDir>/src/**/*.{ts,tsx}',
+    '!**/*.d.ts'
   ],
   transform: {
     '.+\\.(ts|tsx)$': 'ts-jest'
   },
   moduleNameMapper: {
-    '@/(.*)': '<rootDir>/src/$1'
+    '@/(.*)': '<rootDir>/src/$1',
+    '\\.scss$': 'identity-obj-proxy'
   }
 }
 
