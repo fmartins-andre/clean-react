@@ -1,10 +1,18 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const TsconfigPathsPlugins = require('tsconfig-paths-webpack-plugin')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
-const stylesHandler = 'style-loader'
+const stylesHandler = { loader: 'style-loader' }
+const sassHandler = { loader: 'sass-loader' }
+const cssHandler = {
+  loader: 'css-loader',
+  options: {
+    modules: true // !important! prevents error on build
+  }
+}
 
 const config = {
   entry: './src/main/index.tsx',
@@ -40,11 +48,11 @@ const config = {
       },
       {
         test: /\.css$/i,
-        use: [stylesHandler, 'css-loader']
+        use: [stylesHandler, cssHandler]
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [stylesHandler, 'css-loader', 'sass-loader']
+        use: [stylesHandler, cssHandler, sassHandler]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
@@ -53,10 +61,8 @@ const config = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.scss'],
-    alias: {
-      '@': path.resolve(__dirname, 'src')
-    }
+    plugins: [new TsconfigPathsPlugins()],
+    extensions: ['.tsx', '.ts', '.js', '.scss']
   }
 }
 
